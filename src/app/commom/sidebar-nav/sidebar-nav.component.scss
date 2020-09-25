@@ -1,0 +1,23 @@
+.logo-wrapper {
+    text-align: center;
+    color: #fff;
+    i {
+        font-size: 40px;
+    }
+}
+
+.sidebar-nav-wrapper {
+    list-style-type: none;
+    padding-left: 0;
+    text-align-last: center;
+    li {
+        padding: 20px 0;
+        cursor: pointer;
+        color: #fff;
+        a {
+            i {
+                font-size: 30px;
+            }
+        }
+    }
+}

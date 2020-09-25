@@ -1,0 +1,60 @@
+@import '../../../sass//variables';
+.chat-main-wrapper {
+    background: $secondaryColor;
+    padding: 20px;
+    border-radius: 20px;
+    @import '../../../sass//variables';
+    .chat-navigation-section {
+        background: #fff;
+        border-radius: 20px;
+        min-height: 200px;
+        position: relative;
+        padding: 15px;
+        .chat-create-new-wrap {
+            .chat-create-btn {
+                width: 80%;
+                background: #fff;
+                height: 50px;
+                border-radius: 20px;
+                position: absolute;
+                top: 28px;
+                right: 0;
+                -webkit-box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.75);
+                -moz-box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.75);
+                box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.75);
+                i {
+                    font-size: 20px;
+                    color: $primaryColor;
+                    background: $secondaryBG;
+                    border-radius: 50%;
+                    padding: 6px;
+                }
+            }
+        }
+        .chat-title-wrap {
+            padding-top: 90px;
+            h5 {
+                display: inline-block;
+            }
+            i {
+                float: right;
+                margin-top: 8px;
+            }
+        }
+        .chat-search-field {
+            position: relative;
+            input {
+                border-radius: 20px;
+                background: $secondaryBG;
+                border: none;
+                padding: 21px;
+            }
+            i {
+                position: absolute;
+                top: 13px;
+                right: 12px;
+                color: $iconColor;
+            }
+        }
+    }
+}
