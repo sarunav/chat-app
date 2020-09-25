@@ -6,3 +6,22 @@ body {
     background: $primaryColor;
     padding: 20px 0;
 }
+
+.nav-pills {
+    .nav-link {
+        &.active {
+            border-bottom: none;
+        }
+        border-bottom: 1px solid $textColorSecondary;
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.plus-add-icon {
+    color: $primaryColor;
+    background: $secondaryBG;
+    width: 20px;
+    height: 20px;
+}

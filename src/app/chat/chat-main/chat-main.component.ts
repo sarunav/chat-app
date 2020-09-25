@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatMainComponent implements OnInit {
   items = [
-    { name: 'Karlyn Carabello', img: '', time: '25 mins ago' },
-    { name: 'Junior Sabine', img: '', time: 'An hour ago' },
-    { name: 'Melonia Sherk', img: '', time: '3 hours ago' },
-    { name: 'Harrison Palmatier', img: '', time: '7 hours ago' },
-    { name: 'Tressa Duhart', img: '', time: '10 hours ago' },
-    { name: 'Erick Spiva', img: '', time: '13 hours ago' },
-    { name: 'Josefina Simpson', img: '', time: 'Yesterday' },
+    { name: 'Karlyn Carabello', img: '1.jpg', time: '25 mins ago' },
+    { name: 'Junior Sabine', img: '2.jpg', time: 'An hour ago' },
+    { name: 'Melonia Sherk', img: '3.jpg', time: '3 hours ago' },
+    { name: 'Harrison Palmatier', img: '5.jpg', time: '7 hours ago' },
+    { name: 'Tressa Duhart', img: '4.jpg', time: '10 hours ago' },
+    { name: 'Erick Spiva', img: '6.jpg', time: '13 hours ago' },
+    { name: 'Josefina Simpson', img: '7.jpg', time: 'Yesterday' },
   ];
   public activePillIndex = 0;
 

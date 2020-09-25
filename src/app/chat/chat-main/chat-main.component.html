@@ -21,10 +21,17 @@
                     </div>
                     <div class="chat-tab-wrapper">
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a *ngFor="let item of items; let i = index; let first = first;" (click)="selectPill(i)" class="nav-link fade show" [ngClass]="{'active': i === activePillIndex}" id="v-pills-{{i}}" data-toggle="pill" role="tab" aria-controls="v-pills-tabs" aria-selected="true">{{item.name}}</a>
-                            <!-- <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-                            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-                            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a> -->
+                            <a *ngFor="let item of items; let i = index; let first = first;" (click)="selectPill(i)" class="nav-link fade show" [ngClass]="{'active': i === activePillIndex}" id="v-pills-{{i}}" data-toggle="pill" role="tab" aria-controls="v-pills-tabs" aria-selected="true">
+                                <div class="chat-thread-wrap">
+                                    <div class="chat-user-img">
+                                        <img src="/assets/images/{{item.img}}" alt="Chat-image">
+                                    </div>
+                                    <div class="chat-user-name">
+                                        <h5>{{item.name}}</h5>
+                                        <p>{{item.time}}</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -33,10 +40,98 @@
 
         <div class="col-9">
             <div class="tab-content" id="v-pills-tabContent">
-                <div *ngFor="let item of items; let i = index; let first = first;" class="tab-pane fade show" [ngClass]="{'active': i === activePillIndex}" id="v-pills-{{i}}" role="tabpanel" aria-labelledby="v-pills-home-tab">{{item.name}}</div>
-                <!-- <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">p2.</div>
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div> -->
+                <div *ngFor="let item of items; let i = index; let first = first;" class="tab-pane fade show" [ngClass]="{'active': i === activePillIndex}" id="v-pills-{{i}}" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="chat-body-wrapper">
+                        <div class="chat-header-section">
+                            <div class="chat-thread-wrap">
+                                <div class="chat-user-img">
+                                    <img src="/assets/images/{{item.img}}" alt="Chat-image">
+                                </div>
+                                <div class="chat-user-name">
+                                    <h5>{{item.name}}</h5>
+                                    <p>Online</p>
+                                </div>
+                                <div class="more-option-icon">
+                                    <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-thread-wrapper">
+                            <ul>
+                                <li>
+                                    <div class="conversation">
+                                        <div class="conversation-text">
+                                            <p>Hello, Good Morning..!</p>
+                                            <p>How is marketing going for brand?</p>
+                                            <span>4:03PM</span>
+                                        </div>
+                                        <div class="chat-img">
+                                            <img src="/assets/images/1.jpg" alt="Chat-image">
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="chat-app-user">
+                                    <div class="conversation">
+                                        <div class="conversation-text user">
+                                            <p>Hello, Good Morning..!</p>
+                                            <p>How is marketing going for brand?</p>
+                                            <span>4:03PM</span>
+                                        </div>
+                                    </div>
+                                    <div class="conversation">
+                                        <div class="chat-img">
+                                            <img src="/assets/images/1.jpg" alt="Chat-image">
+                                        </div>
+                                        <div class="conversation-text user">
+                                            <p>{{item.name}} shared 3 docs:</p>
+                                            <ul class="doc-wrapper">
+                                                <li>
+                                                    <div class="doc-container">
+                                                        <img src="/assets/images/pdf.png" alt="pdf-img">
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="doc-container">
+                                                        <img src="/assets/images/doc.png" class="img-responsive" alt="doc-img">
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="doc-container">
+                                                        <img src="/assets/images/doc.png" class="img-responsive" alt="doc-img">
+                                                        <i class="fa fa-download" aria-hidden="true"></i>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <span>4:03PM</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="conversation">
+                                        <div class="conversation-text">
+                                            <p>This looks great. Thank you!</p>
+                                            <span>4:15PM</span>
+                                        </div>
+                                        <div class="chat-img">
+                                            <img src="/assets/images/1.jpg" alt="Chat-image">
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chat-input-wrapper">
+                            <div class="form-group">
+                                <div class="plus-add-icon">
+                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                </div>
+                                <input type="text" placeholder="Search Name" class="form-control" id="search" aria-describedby="searchField">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
 

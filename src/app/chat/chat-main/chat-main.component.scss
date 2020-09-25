@@ -1,15 +1,17 @@
-@import '../../../sass//variables';
+@import '../../../sass/variables';
 .chat-main-wrapper {
     background: $secondaryColor;
     padding: 20px;
     border-radius: 20px;
-    @import '../../../sass//variables';
+    .col-md-3 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
     .chat-navigation-section {
         background: #fff;
         border-radius: 20px;
         min-height: 200px;
         position: relative;
-        padding: 15px;
         .chat-create-new-wrap {
             .chat-create-btn {
                 width: 80%;
@@ -32,7 +34,7 @@
             }
         }
         .chat-title-wrap {
-            padding-top: 90px;
+            padding: 90px 16px 0 16px;
             h5 {
                 display: inline-block;
             }
@@ -43,6 +45,7 @@
         }
         .chat-search-field {
             position: relative;
+            padding: 0 16px 0 16px;
             input {
                 border-radius: 20px;
                 background: $secondaryBG;
@@ -52,9 +55,153 @@
             i {
                 position: absolute;
                 top: 13px;
-                right: 12px;
+                right: 28px;
                 color: $iconColor;
             }
         }
+        .chat-tab-wrapper {
+            padding-top: 20px;
+            .nav-link {
+                &.active {
+                    background: $secondaryColor;
+                }
+            }
+        }
+    }
+}
+
+.chat-thread-wrap {
+    .chat-user-img {
+        display: inline-block;
+        float: left;
+        margin-right: 10px;
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+    .chat-user-name {
+        h5 {
+            display: inline-block;
+            color: $textColor;
+            margin-bottom: 0;
+        }
+        p {
+            display: inline-block;
+            margin-bottom: 0;
+            color: $textColorSecondary;
+        }
+    }
+}
+
+.chat-body-wrapper {
+    .chat-user-name {
+        display: inline-block;
+        p {
+            display: block;
+        }
+    }
+    .more-option-icon {
+        float: right;
+        i {
+            color: $textColorSecondary;
+        }
+    }
+    .chat-thread-wrapper {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            li {
+                .conversation {
+                    float: right;
+                    margin: 20px 0;
+                    .conversation-text {
+                        background: $chatThreadBg;
+                        width: 500px;
+                        color: #fff;
+                        padding: 18px;
+                        border-top-left-radius: 30px;
+                        border-top-right-radius: 30px;
+                        border-bottom-left-radius: 30px;
+                        display: inline-block;
+                        text-align: right;
+                        p {
+                            margin-bottom: 0;
+                        }
+                        span {
+                            font-size: 12px;
+                            margin-top: 5px;
+                        }
+                    }
+                    .chat-img {
+                        display: inline-block;
+                        margin-left: 12px;
+                        img {
+                            width: 50px;
+                            height: 50px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                &.chat-app-user {
+                    .conversation {
+                        float: left;
+                        &:first-child {
+                            margin-left: 62px;
+                        }
+                        .chat-img {
+                            margin-left: 0;
+                            margin-right: 12px;
+                        }
+                        .conversation-text {
+                            &.user {
+                                background: #fff;
+                                border-top-left-radius: 30px;
+                                border-top-right-radius: 30px;
+                                border-bottom-right-radius: 30px;
+                                border-bottom-left-radius: 0;
+                                text-align: left;
+                                p {
+                                    color: #000;
+                                }
+                                .doc-wrapper {
+                                    display: flex;
+                                    justify-content: space-around;
+                                    .doc-container {
+                                        background: $secondaryColor;
+                                        min-width: 140px;
+                                        min-height: 150px;
+                                        border-radius: 20px;
+                                        position: relative;
+                                        img {
+                                            width: 50px;
+                                            height: 50px;
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
+                                        }
+                                        i {
+                                            &.fa-download {
+                                                position: absolute;
+                                                bottom: 15px;
+                                                right: 14px;
+                                                color: $iconColor;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .chat-input-wrapper {
+        position: relative;
+        display: inline-block;
+        width: 100%;
     }
 }
