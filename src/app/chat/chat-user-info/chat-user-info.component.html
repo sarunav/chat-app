@@ -1,52 +1,38 @@
 <div class="chat-user-info-wrapper">
-    <img src="/assets/images/5.jpg" alt="Chat-image">
-    <div class="accordion" id="accordionExample">
-        <div class="card">
-            <div class="card-header" id="headingOne">
+    <div class="user-info-area">
+        <img src="/assets/images/5.jpg" alt="Chat-image">
+        <h4 class="mt-3">Wilburn Stoltenberg</h4>
+        <p>CEO & Founder</p>
+    </div>
+
+    <div class="accordion" id="accordionUserInfo">
+        <!-- [ngClass]="{'active-tab': (i === activeIndex && status)}" -->
+        <div class="card" *ngFor="let item of accordionData; let i = index" [ngClass]="i === activeIndex ? 'active-tab': ''">
+            <div class="card-header" id="headingOne" (click)="selectTab(i, $event)">
                 <h2 class="mb-0">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
+                    <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#data-{{i}}" aria-expanded="true" aria-controls="collapseOne">
+                        <div class="accordion-header-icon">
+                            <i class="fa {{item.headerIcon}} {{item.class}}" aria-hidden="true"></i>
+                        </div> 
+                         <span>{{item.title}}</span>
               </button>
                 </h2>
             </div>
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="data-{{i}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionUserInfo">
                 <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                    raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
-              </button>
-                </h2>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                    raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                </div>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-header" id="headingThree">
-                <h2 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
-              </button>
-                </h2>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                <div class="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                    raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    <p *ngIf="!item.contents.length">{{item.title}}</p>
+                    <ul *ngIf="item.contents.length" class="accordion-body-content">
+                        <li *ngFor="let content of item.contents; let i = index">
+                            <div class="content-files">
+                                <i class="fa {{content.icon}} {{content.class}}" aria-hidden="true"></i>
+                            </div>
+                            <span>{{content.text}}</span>
+                            <a>
+                                <i class="fa {{content.downloadIcon}}" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

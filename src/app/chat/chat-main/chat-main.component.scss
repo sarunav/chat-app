@@ -13,34 +13,53 @@
         min-height: 200px;
         position: relative;
         .chat-create-new-wrap {
-            .chat-create-btn {
-                width: 80%;
-                background: #fff;
+            padding: 16px;
+            .dotted-border {
                 height: 50px;
+                width: 100%;
+                border: 2px dotted $textColorSecondary;
+                border-radius: 20px;
+            }
+            .chat-create-btn {
+                width: 100%;
+                background: #fff;
+                padding: 10px;
                 border-radius: 20px;
                 position: absolute;
                 top: 28px;
-                right: 0;
-                -webkit-box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.75);
-                -moz-box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.75);
-                box-shadow: 2px 2px 4px -1px rgba(0, 0, 0, 0.75);
-                i {
-                    font-size: 20px;
-                    color: $primaryColor;
-                    background: $secondaryBG;
-                    border-radius: 50%;
-                    padding: 6px;
+                right: -34px;
+                cursor: pointer;
+                -webkit-box-shadow: 2px 2px 35px 2px rgba(0, 0, 0, 0.15);
+                ;
+                -moz-box-shadow: 2px 2px 35px 2px rgba(0, 0, 0, 0.15);
+                ;
+                box-shadow: 2px 2px 35px 2px rgba(0, 0, 0, 0.15);
+                .icon-bg {
+                    display: inline-flex;
+                    width: 45px;
+                    height: 45px;
+                    justify-content: center;
+                    align-items: center;
+                }
+                p {
+                    display: inline-block;
+                    margin-bottom: 0;
+                    margin-left: 20px;
+                    font-weight: bold;
                 }
             }
         }
         .chat-title-wrap {
-            padding: 90px 16px 0 16px;
+            padding: 32px 16px 0 16px;
             h5 {
                 display: inline-block;
+                font-weight: bold;
+                font-size: 26px;
             }
             i {
                 float: right;
                 margin-top: 8px;
+                cursor: pointer;
             }
         }
         .chat-search-field {
@@ -48,7 +67,7 @@
             padding: 0 16px 0 16px;
             input {
                 border-radius: 20px;
-                background: $secondaryBG;
+                background: $secondaryColor;
                 border: none;
                 padding: 21px;
             }
@@ -62,8 +81,21 @@
         .chat-tab-wrapper {
             padding-top: 20px;
             .nav-link {
+                position: relative;
+                border-radius: 0;
+                cursor: pointer;
                 &.active {
                     background: $secondaryColor;
+                    &::before {
+                        content: "";
+                        display: block;
+                        width: 4px;
+                        height: 100%;
+                        background: $chatThreadBg;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
                 }
             }
         }
@@ -86,11 +118,14 @@
             display: inline-block;
             color: $textColor;
             margin-bottom: 0;
+            font-size: 16px;
+            margin-right: 20px;
         }
         p {
             display: inline-block;
             margin-bottom: 0;
             color: $textColorSecondary;
+            font-size: 12px;
         }
     }
 }
@@ -106,6 +141,7 @@
         float: right;
         i {
             color: $textColorSecondary;
+            cursor: pointer;
         }
     }
     .chat-thread-wrapper {
@@ -118,7 +154,7 @@
                     margin: 20px 0;
                     .conversation-text {
                         background: $chatThreadBg;
-                        width: 500px;
+                        width: 350px;
                         color: #fff;
                         padding: 18px;
                         border-top-left-radius: 30px;
@@ -126,6 +162,12 @@
                         border-bottom-left-radius: 30px;
                         display: inline-block;
                         text-align: right;
+                        &.user {
+                            width: 422px;
+                            span {
+                                color: $textColorSecondary;
+                            }
+                        }
                         p {
                             margin-bottom: 0;
                         }
@@ -141,6 +183,7 @@
                             width: 50px;
                             height: 50px;
                             border-radius: 50%;
+                            box-shadow: 2px 2px 35px 2px rgba(0, 0, 0, 0.15);
                         }
                     }
                 }
@@ -162,15 +205,17 @@
                                 border-bottom-right-radius: 30px;
                                 border-bottom-left-radius: 0;
                                 text-align: left;
+                                box-shadow: 6px 7px 20px -3px rgba(0, 0, 0, 0.15);
                                 p {
-                                    color: #000;
+                                    color: $chatTextColor;
+                                    margin-bottom: 5px;
                                 }
                                 .doc-wrapper {
                                     display: flex;
                                     justify-content: space-around;
                                     .doc-container {
                                         background: $secondaryColor;
-                                        min-width: 140px;
+                                        min-width: 112px;
                                         min-height: 150px;
                                         border-radius: 20px;
                                         position: relative;
@@ -183,6 +228,7 @@
                                             transform: translate(-50%, -50%);
                                         }
                                         i {
+                                            cursor: pointer;
                                             &.fa-download {
                                                 position: absolute;
                                                 bottom: 15px;
@@ -203,5 +249,35 @@
         position: relative;
         display: inline-block;
         width: 100%;
+        input {
+            padding: 30px 30px 30px 52px;
+            border-radius: 20px;
+            border: 0;
+            box-shadow: 2px 2px 22px 0px rgba(0, 0, 0, 0.15);
+        }
+        .emoji-icon {
+            position: absolute;
+            top: 16px;
+            right: 60px;
+            font-size: 20px;
+            color: $textColorSecondary;
+            cursor: pointer;
+        }
+        .icon-bg {
+            cursor: pointer;
+            &.add {
+                position: absolute;
+                top: 13px;
+                left: 10px;
+                i {
+                    color: $textColorSecondary;
+                }
+            }
+            &.send {
+                position: absolute;
+                top: 13px;
+                right: 10px;
+            }
+        }
     }
 }

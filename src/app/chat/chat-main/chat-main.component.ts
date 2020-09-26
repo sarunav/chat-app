@@ -7,13 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatMainComponent implements OnInit {
   items = [
-    { name: 'Karlyn Carabello', img: '1.jpg', time: '25 mins ago' },
-    { name: 'Junior Sabine', img: '2.jpg', time: 'An hour ago' },
-    { name: 'Melonia Sherk', img: '3.jpg', time: '3 hours ago' },
-    { name: 'Harrison Palmatier', img: '5.jpg', time: '7 hours ago' },
-    { name: 'Tressa Duhart', img: '4.jpg', time: '10 hours ago' },
-    { name: 'Erick Spiva', img: '6.jpg', time: '13 hours ago' },
-    { name: 'Josefina Simpson', img: '7.jpg', time: 'Yesterday' },
+    { name: 'Karlyn Carabello', img: 'https://uifaces.co/our-content/donated/3799Ffxy.jpeg', time: '25 mins ago' },
+    { name: 'Junior Sabine', img: 'https://randomuser.me/api/portraits/women/65.jpg', time: 'An hour ago' },
+    { name: 'Melonia Sherk', img: 'https://randomuser.me/api/portraits/women/17.jpg', time: '3 hours ago' },
+    { name: 'Harrison Palmatier', img: 'https://randomuser.me/api/portraits/men/61.jpg', time: '7 hours ago' },
+    { name: 'Tressa Duhart', img: 'https://randomuser.me/api/portraits/women/26.jpg', time: '10 hours ago' },
+    { name: 'Erick Spiva', img: 'https://uifaces.co/our-content/donated/N5PLzyan.jpg', time: '13 hours ago' },
+    { name: 'Josefina Simpson', img: 'https://randomuser.me/api/portraits/women/21.jpg', time: 'Yesterday' },
+    { name: 'Natasha kirpalani', img: 'https://randomuser.me/api/portraits/women/76.jpg', time: 'Yesterday' },
   ];
   public activePillIndex = 0;
 
@@ -22,9 +23,40 @@ export class ChatMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectPill(i: number) {
+  selectPill(i: number, e: any): void {
     console.log('selected--', i);
     this.activePillIndex = i;
+    this.call(i, e);
+  }
+
+  call(i: any, e: any): void {
+      const currentEl = e.target;
+      const currentIndex = currentEl.dataset.index;
+      const allElements = document.querySelectorAll('.nav-pills a');
+      const totalElemets = allElements.length;
+      console.log('totalElemets',  e);
+
+      allElements.forEach((item) => {
+            item.classList.remove('prev');
+            item.classList.remove('next');
+        });
+      if (currentIndex == '0') {
+          console.log('user has clicked first chat element');
+      }
+      else if (currentIndex == totalElemets - 1) {
+          console.log('user has clicked last chat element');
+      }
+      else {
+          console.log("user has clicked an element in between first and last elements");
+          // const previousEl = allElements[currentIndex - 1];
+          // const nextEl = allElements[parseInt(currentIndex) + 1];
+          // console.log('previousEl', previousEl);
+          // console.log('nextEl', nextEl);
+          // previousEl.classList.add('prev');
+          // nextEl.classList.add('next');
+      }
+      // console.log(currentEl, currentIndex);
+
   }
 
 }

@@ -1,7 +1,10 @@
 @import './sass/variables';
 @import '../node_modules/font-awesome/scss/font-awesome.scss';
-@import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import './sass/chat//chat.scss';
+// @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+/* Importing Bootstrap SCSS file. */
+
+@import '~bootstrap/scss/bootstrap';
 body {
     background: $primaryColor;
     padding: 20px 0;
@@ -12,16 +15,63 @@ body {
         &.active {
             border-bottom: none;
         }
-        border-bottom: 1px solid $textColorSecondary;
+        border-bottom: 1px solid $secondaryColor;
         &:last-child {
             border-bottom: none;
         }
     }
 }
 
-.plus-add-icon {
+.icon-bg {
     color: $primaryColor;
     background: $secondaryBG;
-    width: 20px;
-    height: 20px;
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    i {}
+}
+
+.accordion {
+    .card {
+        border: none;
+        margin-bottom: 20px;
+        .card-header {
+            padding: 0;
+            border: none;
+            background: transparent;
+            position: relative;
+            button {
+                width: 100%;
+                &.btn-link {
+                    background: $secondaryColor;
+                    border-top-left-radius: 18px;
+                    border-top-right-radius: 18px;
+                    border-bottom: 2px solid #fff;
+                    &.collapsed {
+                        background: $bgRose;
+                        border-bottom-left-radius: 18px;
+                        border-bottom-right-radius: 18px;
+                    }
+                }
+            }
+        }
+        .card-body {
+            background: $bgRose;
+            // i {
+            //     position: absolute;
+            //     top: 0;
+            // }
+        }
+        .collapse {
+            &.show {
+                .card-body {
+                    background: $secondaryColor;
+                    border-bottom-left-radius: 18px;
+                    border-bottom-right-radius: 18px;
+                }
+            }
+        }
+    }
 }

@@ -7,12 +7,12 @@
             <i class="fa fa-file-o" aria-hidden="true"></i>
         </a>
     </li>
-    <li routerLink="calendar" [routerLinkActive]="['is-active']">
+    <li routerLink="calendar" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
         <a>
             <i class="fa fa-calendar" aria-hidden="true"></i>
         </a>
     </li>
-    <li routerLink="/" [routerLinkActive]="['is-active']">
+    <li routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}">
         <a>
             <i class="fa fa-comment-o" aria-hidden="true"></i>
         </a>
