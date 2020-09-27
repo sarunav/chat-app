@@ -23,13 +23,16 @@ export class ChatMainComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  // Checking selected tab index
   selectPill(i: number, e: any): void {
     console.log('selected--', i);
     this.activePillIndex = i;
-    this.call(i, e);
+    this.addActiveClass(i, e);
   }
 
-  call(i: any, e: any): void {
+  // Add class for previous and next tab elements for active UI
+  addActiveClass(i: any, e: any): void {
       const currentEl = e.target;
       const currentIndex = currentEl.dataset.index;
       const allElements = document.querySelectorAll('.nav-pills a');

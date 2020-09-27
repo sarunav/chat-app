@@ -8,7 +8,7 @@
     <div class="accordion" id="accordionUserInfo">
         <!-- [ngClass]="{'active-tab': (i === activeIndex && status)}" -->
         <div class="card" *ngFor="let item of accordionData; let i = index" [ngClass]="i === activeIndex ? 'active-tab': ''">
-            <div class="card-header" id="headingOne" (click)="selectTab(i, $event)">
+            <div class="card-header" id="headingOne" (click)="selectAccordion(i, $event)">
                 <h2 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" attr.data-target="#data-{{i}}" aria-expanded="true" aria-controls="collapseOne">
                         <div class="accordion-header-icon">

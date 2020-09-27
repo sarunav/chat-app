@@ -26,7 +26,8 @@ export class ChatUserInfoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectTab(i: any, e: any): void {
+// Get selected accordion index
+  selectAccordion(i: any, e: any): void {
     console.log('h--', i);
     this.activeIndex = i;
     this.status = !status;
