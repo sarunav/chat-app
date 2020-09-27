@@ -1,6 +1,7 @@
 @import '../../../sass/variables';
 .chat-main-wrapper {
     background: $secondaryColor;
+    // background: red;
     padding: 20px;
     border-radius: 20px;
     .col-md-3 {
@@ -8,10 +9,18 @@
         padding-right: 0 !important;
     }
     .chat-navigation-section {
-        background: #fff;
+        // background: #fff;
         border-radius: 20px;
         min-height: 200px;
         position: relative;
+        .chat-navigation-top-wrapper {
+            background: #fff;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+            &.prev-class {
+                border-bottom-right-radius: 20px;
+            }
+        }
         .chat-create-new-wrap {
             padding: 16px;
             .dotted-border {
@@ -60,11 +69,13 @@
                 float: right;
                 margin-top: 8px;
                 cursor: pointer;
+                font-size: 20px;
+                color: $textColorSecondary;
             }
         }
         .chat-search-field {
             position: relative;
-            padding: 0 16px 0 16px;
+            padding: 0 16px 16px 16px;
             input {
                 border-radius: 20px;
                 background: $secondaryColor;
@@ -79,13 +90,15 @@
             }
         }
         .chat-tab-wrapper {
-            padding-top: 20px;
             .nav-link {
                 position: relative;
                 border-radius: 0;
+                background: #fff;
                 cursor: pointer;
+                padding: 12px 15px;
                 &.active {
                     background: $secondaryColor;
+                    // background: red;
                     &::before {
                         content: "";
                         display: block;
@@ -97,15 +110,27 @@
                         left: 0;
                     }
                 }
+                &.next-class,
+                &.next-default {
+                    border-top-right-radius: 20px !important;
+                }
+                &.prev-class {
+                    border-bottom-right-radius: 20px !important;
+                    border-top-right-radius: 0 !important;
+                }
+                &:last-child {
+                    border-bottom-left-radius: 20px !important;
+                    border-bottom-right-radius: 20px !important;
+                }
             }
         }
     }
 }
 
 .chat-thread-wrap {
+    display: flex;
+    align-items: center;
     .chat-user-img {
-        display: inline-block;
-        float: left;
         margin-right: 10px;
         img {
             width: 50px;
@@ -115,14 +140,12 @@
     }
     .chat-user-name {
         h5 {
-            display: inline-block;
             color: $textColor;
             margin-bottom: 0;
             font-size: 16px;
             margin-right: 20px;
         }
         p {
-            display: inline-block;
             margin-bottom: 0;
             color: $textColorSecondary;
             font-size: 12px;
@@ -137,11 +160,17 @@
             display: block;
         }
     }
+    .chat-header-section {
+        position: relative;
+    }
     .more-option-icon {
-        float: right;
+        position: absolute;
+        top: 10px;
+        right: 14px;
         i {
             color: $textColorSecondary;
             cursor: pointer;
+            font-size: 20px;
         }
     }
     .chat-thread-wrapper {

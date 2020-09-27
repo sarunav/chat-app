@@ -17,6 +17,8 @@ export class ChatMainComponent implements OnInit {
     { name: 'Natasha kirpalani', img: 'https://randomuser.me/api/portraits/women/76.jpg', time: 'Yesterday' },
   ];
   public activePillIndex = 0;
+  activateClass = true;
+  itemsProcessed: number;
 
   constructor() { }
 
@@ -24,41 +26,47 @@ export class ChatMainComponent implements OnInit {
   }
 
 
-  // Checking selected tab index
+  // Check selected tab index
   selectPill(i: number, e: any): void {
-    console.log('selected--', i);
+    this.activateClass = false;
     this.activePillIndex = i;
-    this.addActiveClass(i, e);
+    this.addActiveClass(i);
   }
 
   // Add class for previous and next tab elements for active UI
-  addActiveClass(i: any, e: any): void {
-      const currentEl = e.target;
-      const currentIndex = currentEl.dataset.index;
+  addActiveClass(i: number): void {
       const allElements = document.querySelectorAll('.nav-pills a');
+      const currentIndex = i;
       const totalElemets = allElements.length;
-      console.log('totalElemets',  e);
+
+      const chatTopWrapper = document.querySelector('.chat-navigation-top-wrapper');
+      console.log('current-index',  currentIndex);
+
+      this.itemsProcessed = 0;
 
       allElements.forEach((item) => {
-            item.classList.remove('prev');
-            item.classList.remove('next');
+            item.classList.remove('prev-class');
+            item.classList.remove('next-class');
+            chatTopWrapper.classList.remove('prev-class');
+
+            this.itemsProcessed++;
+
+            // Checks if the loop has iterated through all the elements
+            if (this.itemsProcessed === allElements.length) {
+              if (currentIndex === 0) {
+                // Check if the clicked element is first tab
+                chatTopWrapper.classList.add('prev-class');
+                allElements[i + 1].classList.add('next-class');
+               } else if (currentIndex === totalElemets - 1) {
+                 // Check if the clicked element is last tab
+                allElements[totalElemets - 2].classList.add('prev-class');
+                } else {
+                  // Check if the clicked element is in-between first & last tab
+                    allElements[i - 1].classList.add('prev-class');
+                    allElements[i + 1].classList.add('next-class');
+                }
+            }
         });
-      if (currentIndex == '0') {
-          console.log('user has clicked first chat element');
-      }
-      else if (currentIndex == totalElemets - 1) {
-          console.log('user has clicked last chat element');
-      }
-      else {
-          console.log("user has clicked an element in between first and last elements");
-          // const previousEl = allElements[currentIndex - 1];
-          // const nextEl = allElements[parseInt(currentIndex) + 1];
-          // console.log('previousEl', previousEl);
-          // console.log('nextEl', nextEl);
-          // previousEl.classList.add('prev');
-          // nextEl.classList.add('next');
-      }
-      // console.log(currentEl, currentIndex);
 
   }
 
